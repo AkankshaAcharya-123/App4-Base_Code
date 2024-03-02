@@ -36,12 +36,32 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<link rel="stylesheet" href="w3-colors-flat.css">
 </head> 
 
-<script>
+<script> // counts the number of times each button is clicked
+	var allergy_count = 0;
+	var cold_count = 0;
 
-	//YOUR JAVASCRIPT GOES HERE
+	function allergyAdd() {
+		allergy_count = allergy_count + 1; //increments counts
+	}
 
-</script>	
+	function coldAdd() {
+		cold_count = cold_count + 1; //increments counts
+	}
 
+	function showResults() { //displays the final results for each 
+		var allergyPercent = 0;
+		var coldPercent = 0;
+		var total = 4;
+
+		allergyPercent = (allergy_count / total) * 100; //calculates percentage allergy
+		coldPercent = (cold_count / total) * 100; //calculates percentage cold
+
+		var resultText = "Your probability of having allergies is " + allergyPercent + "%. Your probability of having a cold is " + coldPercent + "%."; //puts the percent into a sentence
+		var resultParagraph = document.getElementById("returnResults"); // gets the returnResults paragraph element
+		resultParagraph.innerHTML = resultText; // sets the inner html of the paragraph to the previously created sentence
+	}
+
+</script>
 
 <!-- THIS STYLE CODE HELPS MAKE YOUR APP LOOK GOOD. PROBABLY DONT MESS WITH IT -->
 <style>	
